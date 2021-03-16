@@ -2,12 +2,11 @@ package com.store.entity.product;
 
 import com.store.entity.Entity;
 import com.store.entity.category.CategoryEntity;
-import com.store.entity.order.OrderEntity;
+import com.store.entity.order.OrdersEntity;
 import com.store.entity.productBrand.ProductBrandEntity;
 import com.store.entity.shoppingCart.ShoppingCartEntity;
 
 import javax.persistence.*;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,7 +32,7 @@ public class ProductEntity extends Entity {
     private ProductBrandEntity productBrand;
 
     @ManyToMany(mappedBy = "products")
-    private Set<OrderEntity> orders = new HashSet<>();
+    private Set<OrdersEntity> orders = new HashSet<>();
 
     @ManyToMany(mappedBy = "products")
     private Set<ShoppingCartEntity> shoppingCarts = new HashSet<>();
@@ -79,16 +78,16 @@ public class ProductEntity extends Entity {
         this.productBrand = productBrand;
     }
 
-    public Set<OrderEntity> getOrders() {
+    public Set<OrdersEntity> getOrders() {
         return orders;
     }
 
-    public void setOrders(Set<OrderEntity> orders) {
+    public void setOrders(Set<OrdersEntity> orders) {
         this.orders = orders;
     }
 
     public ProductEntity(String model, double price, String urlPhoto, CategoryEntity category,
-                         ProductBrandEntity productBrand, Set<OrderEntity> orders) {
+                         ProductBrandEntity productBrand, Set<OrdersEntity> orders) {
         this.model = model;
         this.price = price;
         this.urlPhoto = urlPhoto;
@@ -98,7 +97,7 @@ public class ProductEntity extends Entity {
     }
 
     public ProductEntity(long id, String model, double price, String urlPhoto, CategoryEntity category,
-                         ProductBrandEntity productBrand, Set<OrderEntity> orders) {
+                         ProductBrandEntity productBrand, Set<OrdersEntity> orders) {
         super(id);
         this.model = model;
         this.price = price;

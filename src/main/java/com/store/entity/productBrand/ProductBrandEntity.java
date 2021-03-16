@@ -10,17 +10,17 @@ import javax.persistence.Table;
 public class ProductBrandEntity extends Entity {
 
     @Column(name = "NAME_BRAND")
-    private String nameBrand;
+    private String name;
 
     @Column(name = "DESCRIPTION")
     private String description;
 
-    public String getNameBrand() {
-        return nameBrand;
+    public String getName() {
+        return name;
     }
 
-    public void setNameBrand(String nameBrand) {
-        this.nameBrand = nameBrand;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -31,14 +31,14 @@ public class ProductBrandEntity extends Entity {
         this.description = description;
     }
 
-    public ProductBrandEntity(long id, String nameBrand, String description) {
+    public ProductBrandEntity(long id, String name, String description) {
         super(id);
-        this.nameBrand = nameBrand;
+        this.name = name;
         this.description = description;
     }
 
-    public ProductBrandEntity(String nameBrand, String description) {
-        this.nameBrand = nameBrand;
+    public ProductBrandEntity(String name, String description) {
+        this.name = name;
         this.description = description;
     }
 }

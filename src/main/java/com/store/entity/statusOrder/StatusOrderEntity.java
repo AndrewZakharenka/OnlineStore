@@ -10,22 +10,22 @@ import javax.persistence.Table;
 public class StatusOrderEntity extends Entity {
 
     @Column(name = "NAME_STATUS")
-    private String nameStatus;
+    private String name;
 
-    public String getNameStatus() {
-        return nameStatus;
+    public String getName() {
+        return name;
     }
 
-    public void setNameStatus(String nameStatus) {
-        this.nameStatus = nameStatus;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public StatusOrderEntity(long id, String nameStatus) {
+    public StatusOrderEntity(long id, String name) {
         super(id);
-        this.nameStatus = nameStatus;
+        this.name = name;
     }
 
-    public StatusOrderEntity(String nameStatus) {
-        this.nameStatus = nameStatus;
+    public StatusOrderEntity(String name) {
+        this.name = name;
     }
 }

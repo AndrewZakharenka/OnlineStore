@@ -10,20 +10,20 @@ import javax.persistence.Table;
 public class CategoryEntity extends Entity {
 
     @Column(name = "NAME_CATEGORY")
-    private String nameCategory;
+    private String name;
 
     @Column(name = "DESCRIPTION")
     private String description;
 
     @Column(name = "SUBCATEGORY_ID")
-    private int subcategoryId;
+    private int parentCategoryId;
 
-    public String getNameCategory() {
-        return nameCategory;
+    public String getName() {
+        return name;
     }
 
-    public void setNameCategory(String nameCategory) {
-        this.nameCategory = nameCategory;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -34,24 +34,24 @@ public class CategoryEntity extends Entity {
         this.description = description;
     }
 
-    public int getSubcategoryId() {
-        return subcategoryId;
+    public int getParentCategoryId() {
+        return parentCategoryId;
     }
 
-    public void setSubcategoryId(int subcategoryId) {
-        this.subcategoryId = subcategoryId;
+    public void setParentCategoryId(int parentCategoryId) {
+        this.parentCategoryId = parentCategoryId;
     }
 
-    public CategoryEntity(String nameCategory, String description, int subcategoryId) {
-        this.nameCategory = nameCategory;
+    public CategoryEntity(String name, String description, int parentCategoryId) {
+        this.name = name;
         this.description = description;
-        this.subcategoryId = subcategoryId;
+        this.parentCategoryId = parentCategoryId;
     }
 
-    public CategoryEntity(long id, String nameCategory, String description, int subcategoryId) {
+    public CategoryEntity(long id, String name, String description, int parentCategoryId) {
         super(id);
-        this.nameCategory = nameCategory;
+        this.name = name;
         this.description = description;
-        this.subcategoryId = subcategoryId;
+        this.parentCategoryId = parentCategoryId;
     }
 }

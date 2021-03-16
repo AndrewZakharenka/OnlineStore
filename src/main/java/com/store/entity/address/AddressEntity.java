@@ -21,6 +21,9 @@ public class AddressEntity extends Entity {
     @Column(name = "FLAT")
     private int flat;
 
+    public AddressEntity() {
+    }
+
     public AddressEntity(String city, String street, int house, int flat) {
         this.city = city;
         this.street = street;

@@ -14,8 +14,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @javax.persistence.Entity
-@Table(name = "order")
-public class OrderEntity extends Entity {
+@Table(name = "orders")
+public class OrdersEntity extends Entity {
 
     @Column(name = "TOTAL_PRICE")
     private double totalPrice;
@@ -24,7 +24,7 @@ public class OrderEntity extends Entity {
     private String comment;
 
     @Column(name = "DATE_ORDER")
-    private Date dateOrder;
+    private Date date;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_USER", referencedColumnName = "id")
@@ -36,38 +36,41 @@ public class OrderEntity extends Entity {
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_STATUS_ORDER", referencedColumnName = "id")
-    private StatusOrderEntity statusOrderEntity;
+    private StatusOrderEntity status;
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
-            name = "order_products",
+            name = "orders_products",
             joinColumns = {@JoinColumn(name = "ID_ORDER")},
             inverseJoinColumns = {@JoinColumn(name = "ID_PRODUCT")}
     )
     private Set<ProductEntity> products = new HashSet<>();
 
-    public OrderEntity(double totalPrice, String comment, Date dateOrder, UserEntity userEntity,
-                       PersonalDataEntity personalData, StatusOrderEntity statusOrderEntity,
-                       Set<ProductEntity> products) {
+    public OrdersEntity() {
+    }
+
+    public OrdersEntity(double totalPrice, String comment, Date date, UserEntity userEntity,
+                        PersonalDataEntity personalData, StatusOrderEntity status,
+                        Set<ProductEntity> products) {
         this.totalPrice = totalPrice;
         this.comment = comment;
-        this.dateOrder = dateOrder;
+        this.date = date;
         this.userEntity = userEntity;
         this.personalData = personalData;
-        this.statusOrderEntity = statusOrderEntity;
+        this.status = status;
         this.products = products;
     }
 
-    public OrderEntity(long id, double totalPrice, String comment, Date dateOrder, UserEntity userEntity,
-                       PersonalDataEntity personalData, StatusOrderEntity statusOrderEntity,
-                       Set<ProductEntity> products) {
+    public OrdersEntity(long id, double totalPrice, String comment, Date date, UserEntity userEntity,
+                        PersonalDataEntity personalData, StatusOrderEntity status,
+                        Set<ProductEntity> products) {
         super(id);
         this.totalPrice = totalPrice;
         this.comment = comment;
-        this.dateOrder = dateOrder;
+        this.date = date;
         this.userEntity = userEntity;
         this.personalData = personalData;
-        this.statusOrderEntity = statusOrderEntity;
+        this.status = status;
         this.products = products;
     }
 
@@ -95,12 +98,12 @@ public class OrderEntity extends Entity {
         this.comment = comment;
     }
 
-    public Date getDateOrder() {
-        return dateOrder;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDateOrder(Date dateOrder) {
-        this.dateOrder = dateOrder;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public UserEntity getUserEntity() {
@@ -119,11 +122,11 @@ public class OrderEntity extends Entity {
         this.personalData = personalData;
     }
 
-    public StatusOrderEntity getStatusOrderEntity() {
-        return statusOrderEntity;
+    public StatusOrderEntity getStatus() {
+        return status;
     }
 
-    public void setStatusOrderEntity(StatusOrderEntity statusOrderEntity) {
-        this.statusOrderEntity = statusOrderEntity;
+    public void setStatus(StatusOrderEntity status) {
+        this.status = status;
     }
 }

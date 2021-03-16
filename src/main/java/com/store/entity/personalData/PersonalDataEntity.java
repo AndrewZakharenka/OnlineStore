@@ -14,17 +14,20 @@ public class PersonalDataEntity extends Entity {
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "address", referencedColumnName = "id")
-    private AddressEntity addressEntity;
+    private AddressEntity address;
 
-    public PersonalDataEntity(String phone, AddressEntity addressEntity) {
-        this.phone = phone;
-        this.addressEntity = addressEntity;
+    public PersonalDataEntity() {
     }
 
-    public PersonalDataEntity(long id, String phone, AddressEntity addressEntity) {
+    public PersonalDataEntity(String phone, AddressEntity address) {
+        this.phone = phone;
+        this.address = address;
+    }
+
+    public PersonalDataEntity(long id, String phone, AddressEntity address) {
         super(id);
         this.phone = phone;
-        this.addressEntity = addressEntity;
+        this.address = address;
     }
 
     public String getPhone() {
@@ -35,11 +38,11 @@ public class PersonalDataEntity extends Entity {
         this.phone = phone;
     }
 
-    public AddressEntity getAddressEntity() {
-        return addressEntity;
+    public AddressEntity getAddress() {
+        return address;
     }
 
-    public void setAddressEntity(AddressEntity addressEntity) {
-        this.addressEntity = addressEntity;
+    public void setAddress(AddressEntity address) {
+        this.address = address;
     }
 }
