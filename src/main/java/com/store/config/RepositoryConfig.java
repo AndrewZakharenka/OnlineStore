@@ -1,4 +1,4 @@
-package com.config;
+package com.store.config;
 
 import com.store.repository.impl.BaseRepositoryImpl;
 import org.springframework.context.annotation.Configuration;
