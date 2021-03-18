@@ -28,6 +28,9 @@ public class ShoppingCartEntity extends Entity {
     )
     private Set<ProductEntity> products = new HashSet<>();
 
+    public ShoppingCartEntity() {
+    }
+
     public ShoppingCartEntity(double totalPrice, UserEntity user) {
         this.totalPrice = totalPrice;
         this.user = user;

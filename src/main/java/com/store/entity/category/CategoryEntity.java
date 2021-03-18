@@ -42,6 +42,9 @@ public class CategoryEntity extends Entity {
         this.parentCategoryId = parentCategoryId;
     }
 
+    public CategoryEntity() {
+    }
+
     public CategoryEntity(String name, String description, int parentCategoryId) {
         this.name = name;
         this.description = description;

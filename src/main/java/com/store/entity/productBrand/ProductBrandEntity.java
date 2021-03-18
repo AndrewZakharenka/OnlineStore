@@ -31,6 +31,9 @@ public class ProductBrandEntity extends Entity {
         this.description = description;
     }
 
+    public ProductBrandEntity() {
+    }
+
     public ProductBrandEntity(long id, String name, String description) {
         super(id);
         this.name = name;

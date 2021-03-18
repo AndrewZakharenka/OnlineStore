@@ -5,4 +5,5 @@ import com.store.repository.BaseRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PersonalDataRepository extends BaseRepository<PersonalDataEntity, Long> {
+
 }

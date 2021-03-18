@@ -86,6 +86,9 @@ public class ProductEntity extends Entity {
         this.orders = orders;
     }
 
+    public ProductEntity() {
+    }
+
     public ProductEntity(String model, double price, String urlPhoto, CategoryEntity category,
                          ProductBrandEntity productBrand, Set<OrdersEntity> orders) {
         this.model = model;

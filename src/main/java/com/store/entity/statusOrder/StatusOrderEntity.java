@@ -20,6 +20,9 @@ public class StatusOrderEntity extends Entity {
         this.name = name;
     }
 
+    public StatusOrderEntity() {
+    }
+
     public StatusOrderEntity(long id, String name) {
         super(id);
         this.name = name;
