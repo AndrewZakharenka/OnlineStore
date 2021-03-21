@@ -17,15 +17,25 @@ public class ShoppingCart extends AbstractModel {
     public ShoppingCart() {
     }
 
-    public ShoppingCart(double totalPrice, User user) {
-        this.totalPrice = totalPrice;
-        this.user = user;
-    }
-
-    public ShoppingCart(long id, double totalPrice, User user) {
+    public ShoppingCart(long id, double totalPrice, User user, Set<Product> products) {
         super(id);
         this.totalPrice = totalPrice;
         this.user = user;
+        this.products = products;
+    }
+
+    public ShoppingCart(double totalPrice, User user, Set<Product> products) {
+        this.totalPrice = totalPrice;
+        this.user = user;
+        this.products = products;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
     public double getTotalPrice() {

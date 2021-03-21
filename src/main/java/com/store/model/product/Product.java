@@ -20,6 +20,14 @@ public class Product extends AbstractModel {
     private Set<ShoppingCart> shoppingCarts = new HashSet<>();
 
 
+    public Set<ShoppingCart> getShoppingCarts() {
+        return shoppingCarts;
+    }
+
+    public void setShoppingCarts(Set<ShoppingCart> shoppingCarts) {
+        this.shoppingCarts = shoppingCarts;
+    }
+
     public String getModel() {
         return model;
     }
@@ -71,18 +79,9 @@ public class Product extends AbstractModel {
     public Product() {
     }
 
-    public Product(String model, double price, String urlPhoto, Category category,
-                   ProductBrand productBrand, Set<Orders> orders) {
-        this.model = model;
-        this.price = price;
-        this.urlPhoto = urlPhoto;
-        this.category = category;
-        this.productBrand = productBrand;
-        this.orders = orders;
-    }
-
     public Product(long id, String model, double price, String urlPhoto, Category category,
-                   ProductBrand productBrand, Set<Orders> orders) {
+                   ProductBrand productBrand, Set<Orders> orders,
+                   Set<ShoppingCart> shoppingCarts) {
         super(id);
         this.model = model;
         this.price = price;
@@ -90,6 +89,18 @@ public class Product extends AbstractModel {
         this.category = category;
         this.productBrand = productBrand;
         this.orders = orders;
+        this.shoppingCarts = shoppingCarts;
     }
 
+    public Product(String model, double price, String urlPhoto, Category category,
+                   ProductBrand productBrand, Set<Orders> orders,
+                   Set<ShoppingCart> shoppingCarts) {
+        this.model = model;
+        this.price = price;
+        this.urlPhoto = urlPhoto;
+        this.category = category;
+        this.productBrand = productBrand;
+        this.orders = orders;
+        this.shoppingCarts = shoppingCarts;
+    }
 }
