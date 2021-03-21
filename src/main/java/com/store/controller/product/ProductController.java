@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class ProductController {
     private Service<ProductBrand> productBrandService;
 
     @GetMapping("/catalog")
-    public String index(Model model){
+    public String catalog(Model model){
         List<Product> products = productService.getAll();
         List<Category> categories = categoryService.getAll();
         List<ProductBrand> productBrands = productBrandService.getAll();
@@ -28,6 +29,14 @@ public class ProductController {
         model.addAttribute("productBrands", productBrands);
         return "catalog";
     }
+
+    @GetMapping("catalog/{id}")
+    public String viewProduct(@PathVariable("id") int id, Model model){
+        Product product = productService.getById(id);
+        model.addAttribute("product", product);
+        return "product-page";
+    }
+
 
     @Autowired
     public void setCategoryService(Service<Category> categoryService) {
