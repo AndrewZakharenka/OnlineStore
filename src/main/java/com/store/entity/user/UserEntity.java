@@ -22,7 +22,7 @@ public class UserEntity extends com.store.entity.Entity {
     private RoleEntity role;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name = "PERSONAL_DATA" , referencedColumnName = "id")
+    @JoinColumn(name = "ID_PERSONAL_DATA" , referencedColumnName = "id")
     private PersonalDataEntity personalData;
 
     public UserEntity() {

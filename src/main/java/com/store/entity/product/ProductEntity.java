@@ -86,21 +86,32 @@ public class ProductEntity extends Entity {
         this.orders = orders;
     }
 
+    public Set<ShoppingCartEntity> getShoppingCarts() {
+        return shoppingCarts;
+    }
+
+    public void setShoppingCarts(Set<ShoppingCartEntity> shoppingCarts) {
+        this.shoppingCarts = shoppingCarts;
+    }
+
     public ProductEntity() {
     }
 
     public ProductEntity(String model, double price, String urlPhoto, CategoryEntity category,
-                         ProductBrandEntity productBrand, Set<OrdersEntity> orders) {
+                         ProductBrandEntity productBrand, Set<OrdersEntity> orders,
+                         Set<ShoppingCartEntity> shoppingCarts) {
         this.model = model;
         this.price = price;
         this.urlPhoto = urlPhoto;
         this.category = category;
         this.productBrand = productBrand;
         this.orders = orders;
+        this.shoppingCarts = shoppingCarts;
     }
 
-    public ProductEntity(long id, String model, double price, String urlPhoto, CategoryEntity category,
-                         ProductBrandEntity productBrand, Set<OrdersEntity> orders) {
+    public ProductEntity(long id, String model, double price, String urlPhoto,
+                         CategoryEntity category, ProductBrandEntity productBrand,
+                         Set<OrdersEntity> orders, Set<ShoppingCartEntity> shoppingCarts) {
         super(id);
         this.model = model;
         this.price = price;
@@ -108,6 +119,6 @@ public class ProductEntity extends Entity {
         this.category = category;
         this.productBrand = productBrand;
         this.orders = orders;
+        this.shoppingCarts = shoppingCarts;
     }
-
 }

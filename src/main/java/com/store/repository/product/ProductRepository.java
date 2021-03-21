@@ -6,4 +6,5 @@ import com.store.repository.BaseRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends BaseRepository<ProductEntity, Long> {
+    ProductEntity getById(Long id);
 }

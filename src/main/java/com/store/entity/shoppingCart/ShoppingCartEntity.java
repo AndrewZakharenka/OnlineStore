@@ -31,15 +31,25 @@ public class ShoppingCartEntity extends Entity {
     public ShoppingCartEntity() {
     }
 
-    public ShoppingCartEntity(double totalPrice, UserEntity user) {
+    public ShoppingCartEntity(double totalPrice, UserEntity user, Set<ProductEntity> products) {
         this.totalPrice = totalPrice;
         this.user = user;
+        this.products = products;
     }
 
-    public ShoppingCartEntity(long id, double totalPrice, UserEntity user) {
+    public ShoppingCartEntity(long id, double totalPrice, UserEntity user, Set<ProductEntity> products) {
         super(id);
         this.totalPrice = totalPrice;
         this.user = user;
+        this.products = products;
+    }
+
+    public Set<ProductEntity> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<ProductEntity> products) {
+        this.products = products;
     }
 
     public double getTotalPrice() {
