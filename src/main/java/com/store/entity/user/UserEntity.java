@@ -17,6 +17,12 @@ public class UserEntity extends com.store.entity.Entity {
     @Column(name = "SURNAME")
     private String surname;
 
+    @Column(name = "EMAIL")
+    private String email;
+
+    @Column(name = "PASSWORD")
+    private String password;
+
     @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_ROLE" , referencedColumnName = "id")
     private RoleEntity role;
@@ -28,17 +34,23 @@ public class UserEntity extends com.store.entity.Entity {
     public UserEntity() {
     }
 
-    public UserEntity(String name, String surname, RoleEntity role, PersonalDataEntity personalData) {
+    public UserEntity(String name, String surname, String email,
+                      String password, RoleEntity role, PersonalDataEntity personalData) {
         this.name = name;
         this.surname = surname;
+        this.email = email;
+        this.password = password;
         this.role = role;
         this.personalData = personalData;
     }
 
-    public UserEntity(long id, String name, String surname, RoleEntity role, PersonalDataEntity personalData) {
+    public UserEntity(long id, String name, String surname, String email,
+                      String password, RoleEntity role, PersonalDataEntity personalData) {
         super(id);
         this.name = name;
         this.surname = surname;
+        this.email = email;
+        this.password = password;
         this.role = role;
         this.personalData = personalData;
     }
@@ -52,6 +64,22 @@ public class UserEntity extends com.store.entity.Entity {
                 Objects.equals(surname, that.surname) &&
                 Objects.equals(role, that.role) &&
                 Objects.equals(personalData, that.personalData);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

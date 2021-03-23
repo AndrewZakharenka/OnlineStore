@@ -17,14 +17,18 @@ public class UserConverter extends AbstractConverter<UserEntity, User> {
 
     @Override
     public User convert(UserEntity userEntity) {
-        return new User(userEntity.getId(), userEntity.getName(), userEntity.getSurname(),
-                roleConverter.convert(userEntity.getRole()),
-                personalDataConverter.convert(userEntity.getPersonalData()));
+        if (userEntity != null) {
+            return new User(userEntity.getId(), userEntity.getName(), userEntity.getSurname(),
+                    userEntity.getEmail(), userEntity.getPassword(),
+                    roleConverter.convert(userEntity.getRole()),
+                    personalDataConverter.convert(userEntity.getPersonalData()));
+        } else return new User();
     }
 
     @Override
     public UserEntity convertReverse(User user) {
         return new UserEntity(user.getId(), user.getName(), user.getSurname(),
+                user.getEmail(), user.getPassword(),
                 roleConverter.convertReverse(user.getRole()),
                 personalDataConverter.convertReverse(user.getPersonalData()));
     }
@@ -33,6 +37,7 @@ public class UserConverter extends AbstractConverter<UserEntity, User> {
     public void setPersonalDataConverter(PersonalDataConverter personalDataConverter) {
         this.personalDataConverter = personalDataConverter;
     }
+
     @Autowired
     public void setRoleConverter(RoleConverter roleConverter) {
         this.roleConverter = roleConverter;

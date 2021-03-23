@@ -10,23 +10,31 @@ public class User extends AbstractModel {
 
     private String name;
     private String surname;
+    private String email;
+    private String password;
     private Role role;
     private PersonalData personalData;
 
     public User() {
     }
 
-    public User(String name, String surname, Role role, PersonalData personalData) {
+    public User(long id, String name, String surname, String email,
+                String password, Role role, PersonalData personalData) {
+        super(id);
         this.name = name;
         this.surname = surname;
+        this.email = email;
+        this.password = password;
         this.role = role;
         this.personalData = personalData;
     }
 
-    public User(long id, String name, String surname, Role role, PersonalData personalData) {
-        super(id);
+    public User(String name, String surname, String email,
+                String password, Role role, PersonalData personalData) {
         this.name = name;
         this.surname = surname;
+        this.email = email;
+        this.password = password;
         this.role = role;
         this.personalData = personalData;
     }
@@ -40,6 +48,22 @@ public class User extends AbstractModel {
                 Objects.equals(surname, that.surname) &&
                 Objects.equals(role, that.role) &&
                 Objects.equals(personalData, that.personalData);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
