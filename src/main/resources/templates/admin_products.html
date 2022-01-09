@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Product Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Product List</h1>
+    <a href="/admin/products/new">Create New Product</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>URL PHOTO</th>
+            <th>Id Category</th>
+            <th>Name Category</th>
+            <th>Description Category</th>
+            <th>Id product brand</th>
+            <th>Name product brand</th>
+            <th>Description product brand</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.getId()}">Product ID</td>
+            <td th:text="${product.getModel()}">Model</td>
+            <td th:text="${product.getPrice()}">Price</td>
+            <td th:text="${product.getUrlPhoto()}">Url Photo</td>
+            <td th:text="${product.getCategory().getId()}">Id Category</td>
+            <td th:text="${product.getCategory().getName()}">Name Category</td>
+            <td th:text="${product.getCategory().getDescription()}">Description Category</td>
+            <td th:text="${product.getProductBrand().getId()}">Id product brand</td>
+            <td th:text="${product.productBrand.name}">Name product brand</td>
+            <td th:text="${product.getProductBrand().getDescription()}">Description product brand</td>
+            <td>
+                <a th:href="@{'/admin/product/edit/' + ${product.id}}">Edit</a>
+                <a th:href="@{'/admin/product/delete/' + ${product.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
