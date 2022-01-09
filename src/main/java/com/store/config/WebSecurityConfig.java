@@ -27,12 +27,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/registration").permitAll()
-                    .antMatchers("/static/**").permitAll()
-                    .antMatchers("/css/**", "/bootstrap/**", "/fonts/**", "/img/**", "/js/**").permitAll()
-                    .anyRequest().authenticated()
+                .antMatchers("/", "/registration", "/catalog").permitAll()
+                .antMatchers("/static/**").permitAll()
+                .antMatchers("/css/**", "/bootstrap/**", "/fonts/**", "/img/**", "/js/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
-                    .formLogin(form -> form
+                .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/catalog")
                         .failureUrl("/login?error=true")
@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected UserDetailsService userDetailsService() {
         UserDetails user = User.withDefaultPasswordEncoder()
                 .username("user@gmail.com")
-        .password("1111")
+                .password("1111")
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(user);

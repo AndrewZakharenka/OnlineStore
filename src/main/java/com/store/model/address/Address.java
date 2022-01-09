@@ -4,7 +4,7 @@ package com.store.model.address;
 import com.store.model.AbstractModel;
 
 public class Address extends AbstractModel {
-    
+
     private String city;
     private String street;
     private int house;
@@ -58,5 +58,15 @@ public class Address extends AbstractModel {
 
     public void setFlat(int flat) {
         this.flat = flat;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", house=" + house +
+                ", flat=" + flat +
+                '}';
     }
 }
