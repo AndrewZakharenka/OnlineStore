@@ -59,4 +59,14 @@ public class Address extends AbstractModel {
     public void setFlat(int flat) {
         this.flat = flat;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", house=" + house +
+                ", flat=" + flat +
+                '}';
+    }
 }
